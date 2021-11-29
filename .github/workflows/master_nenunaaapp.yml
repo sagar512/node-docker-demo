@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://index.docker.io/v1/
-        username: ${{ secrets.AzureAppService_ContainerUsername_bb161172fc6647369f1a74a781c79e0a }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_21665e0a16944809ace04ec58babd8fb }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_0458677a83dc4ee8aee431227ae084ec }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_697a3863497e46e2836bbadd9cc06438 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bb161172fc6647369f1a74a781c79e0a }}/ekofiles:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_0458677a83dc4ee8aee431227ae084ec }}/ekofiles/laravel:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'nenunaaapp'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_a0cfe10d1f3d460e8706f536bee50cff }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_bb161172fc6647369f1a74a781c79e0a }}/ekofiles:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6ccf44b411d8425cb5eba3e56d9ca0dc }}
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_0458677a83dc4ee8aee431227ae084ec }}/ekofiles/laravel:${{ github.sha }}'
