@@ -30,5 +30,5 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'DockerHub'
-        repository: 'sagar512/azure-demo'
-        command: docker push sagar512/azure-demo:tagname
+        repository: 'https://hub.docker.com/repository/docker/sagar512/azure-demo/'
+        command: push
