@@ -31,4 +31,4 @@ stages:
       inputs:
         containerRegistry: 'DockerHub'
         repository: 'sagar512/azure-demo'
-        command: push $(tag)
+        command: docker push sagar512/azure-demo:tagname
